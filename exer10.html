@@ -1,0 +1,187 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>exer10</title>
+	<style>
+		a.test {
+		font-weight: bold;
+		}
+		 div,span{
+		width: 90px;
+		height: 30px;
+		float: left;
+		margin: 5px;
+		background-color: #eee;
+		}
+		 ul{
+		width: 90px;
+		height: 90px;
+		float: left;
+		padding: 5px;
+		margin: 5px;
+		}
+		.active{
+			border:2px solid yellow;
+		}
+		 div.out {
+		width: 40%;
+		height: 120px;
+		margin: 0 15px;
+		background-color: #d6edfc;
+		float: left;
+		}
+		div.in {
+		width: 60%;
+		height: 60%;
+		background-color: #fc0;
+		margin: 10px auto;
+		}
+	</style>
+</head>
+<body>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+	<a class='click'>Click this to hide this</a>
+	
+	<script>
+
+		$( document ).ready(function() {
+			$( "a.click" ).click(function( event ) {
+			alert( "You can start demo!" );
+			event.preventDefault();
+			$( this ).hide( "slow" );
+			});
+		});
+	</script>
+	<script> $( "a" ).addClass( "test" ); </script>
+	<p>---------------------------------------------------------------------------</p>
+	<!- selecting elements ->
+	<p style= "font-weight: bold;">Selecting elements</p>
+	<p style = "width:300px; background-color: #CCFFFF;">( Click again to remove the border )</p>
+	<p>- Click the tag that you want to border </p>
+	
+	<div class='e1'>DIV1</div>
+	<div class='e1'>DIV2</div>
+	<span class='e1'>SPAN1</span>
+	<span class='e1'>SPAN2</span>
+	
+	<script>
+		$( document ).ready(function() {
+			$( 'span.e1' ).click(function( event ) {
+			$('span.e1').parent().siblings().children().removeClass('active');
+ 			$('span.e1').toggleClass('active');
+			
+			});
+		});
+	</script>
+	<script>
+		$( document ).ready(function() {
+			$( 'div.e1' ).click(function( event ) {
+			$( 'div.e1' ).parent().siblings().children().removeClass('active');
+ 			$('div.e1').toggleClass('active');
+			});
+		});
+	</script>
+
+	<br><br><br><br><br><br><br>
+	<p>- Click the id that you want to border </p>
+	<div id="b1">id="b1"</div>
+	<div id="b2">id="b2"</div>
+	<div id="b1">id="b1"</div>
+	<div id="b2">id="b2"</div>
+	<script>
+
+		$( document ).ready(function() {
+			$( '[id=b1]' ).click(function( event ) {
+			$( '[id=b1]' ).parent().siblings().children().removeClass('active');
+ 			$('[id=b1]').toggleClass('active');
+			});
+		});
+	</script>
+
+	<script>
+
+		$( document ).ready(function() {
+			$( '[id=b2]' ).click(function( event ) {
+			$( '[id=b2]' ).parent().siblings().children().removeClass('active');
+ 			$('[id=b2]').toggleClass('active');
+			});
+		});
+	</script><br><br><br><br><br><br>
+
+	<p>- Click the context that you want to border </p>
+	<ul class="fruits">
+		<li>apple </li>
+		<li>banana </li>
+		<li>cherry </li>
+		<li>melon</li>
+	</ul>
+	<ul class="countries">
+		<li>Korea </li>
+		<li>China </li>
+		<li>Canada </li>
+		<li>America </li>
+	</ul>
+	<script>
+
+		$( document ).ready(function() {
+			$( 'ul.fruits li' ).click(function( event ) {
+			$( 'ul.fruits li' ).parent().siblings().children().removeClass('active');
+ 			$('ul.fruits li').toggleClass('active');
+			});
+		});
+	</script>
+	<script>
+
+		$( document ).ready(function() {
+			$( 'ul.countries li' ).click(function( event ) {
+			$( 'ul.countries li' ).parent().siblings().children().removeClass('active');
+ 			$('ul.countries li').toggleClass('active');
+			});
+		});
+	</script><br><br><br><br><br><br>
+	
+	<p>---------------------------------------------------------------------------</p>
+	<!- effect ->
+	<a class='hide'>- Click this to hide 'DIV'</a>
+	
+	<script>
+
+		$( document ).ready(function() {
+			$( "a.hide" ).click(function( event ) {
+			$( 'div' ).hide( "slow" );
+			});
+		});
+	</script><br>
+	<a class='show'>- Click this to show the hidden 'DIV'</a>
+	
+	<script>
+
+		$( document ).ready(function() {
+			$( "a.show" ).click(function( event ) {
+			$( 'div' ).show( "slow" );
+			});
+		});
+	</script>
+	<br>
+	<p>---------------------------------------------------------------------------</p>
+	<!- mouseover ->
+		<div class="out enterleave">
+		<span>move your mouse</span>
+		<div class="in">
+		</div>
+	</div>
+	<script>
+	var n = 0;
+	$( "div.enterleave" )
+		.mouseenter(function() {
+		n += 1;
+		$( this ).find( "span" ).text( "mouse enter x " + n );
+		})
+		.mouseleave(function() {
+		$( this ).find( "span" ).text( "mouse leave" );
+		});
+	</script>
+	
+</body>
+</html>
